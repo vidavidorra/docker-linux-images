@@ -1,0 +1,38 @@
+{
+  "name": "docker-linux",
+  "version": "0.1.0",
+  "description": "Docker image(s)",
+  "main": "index.js",
+  "scripts": {
+    "release": "standard-version --skip.commit --skip.tag",
+    "release:ok": "standard-version --sign --skip.bump --skip.changelog --commit-all",
+    "release:publish": "git push --follow-tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vidavidorra/docker-linux.git"
+  },
+  "author": "Jeroen de Bruijn",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/vidavidorra/docker-linux/issues"
+  },
+  "homepage": "https://github.com/vidavidorra/docker-linux#readme",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "standard-version": {
+    "scripts": {
+      "prerelease": "if [[ \"$(git rev-parse --abbrev-ref HEAD)\" != \"master\" ]]; then exit -1; fi",
+      "precommit": "git add package.json package-lock.json"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "husky": "^1.3.1",
+    "standard-version": "^5.0.2"
+  }
+}
