@@ -1,0 +1,73 @@
+#!/bin/bash
+#
+# Install Homebrew.
+#
+# The installation is based on the installation instructions of the Homebrew
+# documentation at https://docs.brew.sh/Homebrew-on-Linux.
+
+################################################################################
+# Configuration
+################################################################################
+# Fail on first error
+set -e
+
+
+################################################################################
+# Constants
+################################################################################
+
+
+################################################################################
+# Global variables
+################################################################################
+
+
+################################################################################
+# Functions
+################################################################################
+########################################
+# Install Homebrew requirements.
+#
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+########################################
+homebrew::install_requirements() {
+  apt-get install -y \
+    curl \
+    file \
+    git
+}
+
+########################################
+# Install Homebrew.
+#
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+########################################
+homebrew::install() {
+  local homebrew_user='linuxbrew'
+  useradd -m -s /bin/bash "${homebrew_user}"
+  echo "${homebrew_user} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+  su - "${homebrew_user}" -c \
+    'sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"'
+}
+
+
+################################################################################
+# Main
+################################################################################
+main() {
+  homebrew::install_requirements
+  homebrew::install
+}
+
+main "${@}"
