@@ -1,0 +1,36 @@
+language: none
+
+env:
+  matrix:
+    - LINUX_VERSION: ubuntu1404
+    - LINUX_VERSION: ubuntu1604
+
+build:
+  ci:
+    - >
+      docker build
+      --file "./docker/${LINUX_VERSION}.DockerFile"
+      --tag "docker-linux:${LINUX_VERSION}"
+      .;
+  on_success:
+    - >
+      ./docker/tag_and_push
+      "docker-linux:${LINUX_VERSION}"
+      "vidavidorra"
+      "${BRANCH}"
+      "${GIT_TAG_NAME}"
+      "${PULL_REQUEST}";
+
+integrations:
+  notifications:
+    - integrationName: email
+      type: email
+      sendConsoleLogs: false
+      on_success: change
+      on_failure: change
+      on_cancel: never
+      on_start: never
+      on_pull_request: never
+  hub:
+    - integrationName: docker-hub
+      type: docker
