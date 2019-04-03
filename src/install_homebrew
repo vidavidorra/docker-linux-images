@@ -36,6 +36,7 @@ set -e
 #   None
 ########################################
 homebrew::install_requirements() {
+  apt-get update
   apt-get install -y \
     curl \
     file \
