@@ -4,15 +4,19 @@ MAINTAINER Jeroen de Bruijn <vidavidorra@gmail.com>
 ARG DEBIAN_FRONTEND=noninteractive
 
 
+# Install default packages.
+#
+# The apt-utils package is to workaround to what seems to be an Ubuntu bug. See
+# https://github.com/tianon/docker-brew-ubuntu-core/issues/59 for more details.
 RUN apt-get update \
-      && apt-get install -y --no-install-recommends \
+      && apt-get install -y \
+           apt-utils \
            ca-certificates \
-           g++ \
-           make \
            uuid-runtime
 
 
 # Install and configure locales.
+#
 # Source: https://hub.docker.com/_/ubuntu
 RUN apt-get update \
       && apt-get install -y locales \
