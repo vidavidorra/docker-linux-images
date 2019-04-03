@@ -59,14 +59,14 @@ docker::tag_and_push() {
     echo "Tagging Docker images as"\
          "'${docker_username}/${image_name_and_tag}-${git_tag_name}'" \
          "and '${docker_username}/${image_name_and_tag}-latest'"
-    docker tag "${image_tag}" "${docker_username}/${image_name_and_tag}-${git_tag_name}"
-    docker tag "${image_tag}" "${docker_username}/${image_name_and_tag}-latest"
+    docker tag "${image_name_and_tag}" "${docker_username}/${image_name_and_tag}-${git_tag_name}"
+    docker tag "${image_name_and_tag}" "${docker_username}/${image_name_and_tag}-latest"
     docker push "${docker_username}/${image_name_and_tag}-${git_tag_name}"
     docker push "${docker_username}/${image_name_and_tag}-latest"
   else
     echo "Tagging Docker image as" \
          "'${docker_username}/${image_name_and_tag}-${git_branch_name}'"
-    docker tag "${image_tag}" "${docker_username}/${image_name_and_tag}-${git_branch_name}"
+    docker tag "${image_name_and_tag}" "${docker_username}/${image_name_and_tag}-${git_branch_name}"
     docker push "${docker_username}/${image_name_and_tag}-${git_branch_name}"
   fi
 }
