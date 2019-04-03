@@ -61,6 +61,22 @@ homebrew::install() {
     'sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"'
 }
 
+########################################
+# Test Homebrew.
+#
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+########################################
+homebrew::test() {
+  brew --version
+  brew install hello
+  hello
+}
+
 
 ################################################################################
 # Main
@@ -68,6 +84,7 @@ homebrew::install() {
 main() {
   homebrew::install_requirements
   homebrew::install
+  homebrew::test
 }
 
 main "${@}"
