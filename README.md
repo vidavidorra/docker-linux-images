@@ -10,7 +10,7 @@ Docker Linux base image(s)
 
 ## Build
 
-This repository is automatically build on CI platform(s). After a successful build, the created Docker images are uploaded to the [vidavidorra/docker-linux](vidavidorra/docker-linux) repository on Docker Hub. The table below shows the build status of latest build on CI platform(s).
+This repository is automatically build on CI platform(s). After a successful build, the created Docker images are uploaded to the [vidavidorra/docker-linux](https://hub.docker.com/r/vidavidorra/docker-linux) repository on Docker Hub. The table below shows the build status of latest build on CI platform(s).
 
 <table>
   <tr>
