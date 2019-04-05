@@ -6,8 +6,6 @@
 </p>
 Docker Linux base image(s)
 
-
-
 ## Build
 
 This repository is automatically build on CI platform(s). After a successful build, the created Docker images are uploaded to the [vidavidorra/docker-linux](https://hub.docker.com/r/vidavidorra/docker-linux) repository on Docker Hub. The table below shows the build status of latest build on CI platform(s).
@@ -22,13 +20,11 @@ This repository is automatically build on CI platform(s). After a successful bui
   </tr>
 </table>
 
-
-
 ## License
 
 This project is licensed under the [GPLv3 license](https://www.gnu.org/licenses/gpl.html).
 
-Copyright © 2019  Jeroen de Bruijn
+Copyright © 2019 Jeroen de Bruijn
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -37,10 +33,10 @@ the Free Software Foundation, either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-The full text of the license is available in the *LICENSE.md* file in this repository and [online](https://www.gnu.org/licenses/gpl.html).
+The full text of the license is available in the _LICENSE.md_ file in this repository and [online](https://www.gnu.org/licenses/gpl.html).

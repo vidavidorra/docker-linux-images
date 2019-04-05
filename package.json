@@ -6,7 +6,13 @@
   "scripts": {
     "release": "standard-version --skip.commit --skip.tag",
     "release:ok": "standard-version --sign --skip.bump --skip.changelog --commit-all",
-    "release:publish": "git push --follow-tags"
+    "release:publish": "git push --follow-tags",
+    "prettier": "prettier \"**/*.{js,ts,json,md}\"",
+    "prettier:fix": "prettier \"**/*.{js,ts,json,md}\" --write",
+    "prettier:package": "prettier --ignore-path '' \"package?(-lock).json\"",
+    "prettier:package:fix": "prettier --ignore-path '' \"package?(-lock).json\" --write",
+    "prettier:changelog": "prettier \"CHANGELOG.md\"",
+    "prettier:changelog:fix": "prettier \"CHANGELOG.md\" --write"
   },
   "repository": {
     "type": "git",
@@ -33,6 +39,7 @@
     "@commitlint/cli": "^7.5.2",
     "@commitlint/config-conventional": "^7.5.0",
     "husky": "^1.3.1",
+    "prettier": "1.16.4",
     "standard-version": "^5.0.2"
   }
 }
