@@ -4,6 +4,7 @@ env:
   matrix:
     - LINUX_VERSION: ubuntu1404
     - LINUX_VERSION: ubuntu1604
+    - LINUX_VERSION: ubuntu1804
 
 build:
   ci:
