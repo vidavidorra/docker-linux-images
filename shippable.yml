@@ -23,6 +23,9 @@ integrations:
   notifications:
     - integrationName: email
       type: email
+      recipients:
+        - --last_committer
+        - --last_author
       sendConsoleLogs: false
       on_success: change
       on_failure: change
