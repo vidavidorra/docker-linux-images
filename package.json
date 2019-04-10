@@ -7,8 +7,8 @@
     "release": "standard-version --skip.commit --skip.tag",
     "release:ok": "standard-version --sign --skip.bump --skip.changelog --commit-all",
     "release:publish": "git push --follow-tags",
-    "prettier": "prettier \"**/*.{js,ts,json,md}\"",
-    "prettier:fix": "prettier \"**/*.{js,ts,json,md}\" --write"
+    "prettier": "prettier \"**/*.{js,ts,json,md,yml,yaml}\"",
+    "prettier:fix": "prettier \"**/*.{js,ts,json,md,yml,yaml}\" --write"
   },
   "repository": {
     "type": "git",
