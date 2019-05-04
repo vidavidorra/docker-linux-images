@@ -27,7 +27,7 @@
     }
   },
   "lint-staged": {
-    "*": [
+    "**/*.{js,ts,json,md,yml,yaml}": [
       "npm run prettier:fix",
       "git add"
     ]
