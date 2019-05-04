@@ -1,6 +1,6 @@
 FROM ubuntu:trusty
 
-MAINTAINER Jeroen de Bruijn <vidavidorra@gmail.com>
+LABEL maintainer="Jeroen de Bruijn <vidavidorra@gmail.com>"
 ARG DEBIAN_FRONTEND=noninteractive
 
 

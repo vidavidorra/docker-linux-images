@@ -1,10 +1,9 @@
 FROM ubuntu:bionic
 
-MAINTAINER Jeroen de Bruijn <vidavidorra@gmail.com>
+LABEL maintainer="Jeroen de Bruijn <vidavidorra@gmail.com>"
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update
-RUN echo "done"
+
 # Install default packages.
 #
 # The apt-utils package is to workaround to what seems to be an Ubuntu bug. See
