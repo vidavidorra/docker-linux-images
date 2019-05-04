@@ -10,9 +10,9 @@ ARG DEBIAN_FRONTEND=noninteractive
 # https://github.com/tianon/docker-brew-ubuntu-core/issues/59 for more details.
 RUN apt-get update \
       && apt-get install -y \
-           apt-utils \
-           ca-certificates \
-           uuid-runtime
+      apt-utils \
+      ca-certificates \
+      uuid-runtime
 
 
 # Install and configure locales.
@@ -21,7 +21,7 @@ RUN apt-get update \
 RUN apt-get update \
       && apt-get install -y locales \
       && localedef -i en_US -c -f UTF-8 \
-                   -A /usr/share/locale/locale.alias en_US.UTF-8
+      -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
 
 
