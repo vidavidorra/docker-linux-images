@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.1"></a>
+
+## [1.0.1](https://github.com/vidavidorra/docker-linux/compare/v1.0.0...v1.0.1) (2019-05-04)
+
+### Bug Fixes
+
+- 4 high severity vulnerabilities ([35bb896](https://github.com/vidavidorra/docker-linux/commit/35bb896))
+- replace maintainer by label in DockerFiles ([f357419](https://github.com/vidavidorra/docker-linux/commit/f357419))
+
 <a name="1.0.0"></a>
 
 # 1.0.0 (2019-04-10)
