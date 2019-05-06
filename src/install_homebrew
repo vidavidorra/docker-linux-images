@@ -8,9 +8,10 @@
 ################################################################################
 # Configuration
 ################################################################################
-# Fail on first error
+# Fail on first error.
 set -e
-
+# Echo commands.
+set -x
 
 ################################################################################
 # Constants
@@ -37,10 +38,24 @@ set -e
 ########################################
 homebrew::install_requirements() {
   apt-get update
+
+  # Homebrew requirements.
+  # See https://docs.brew.sh/Homebrew-on-Linux#linuxwsl-requirements.
   apt-get install -y \
+    build-essential \
     curl \
     file \
     git
+
+  # Implicit requirements for `brew tests` and `brew audit`. These are actually
+  # requirements for the Nokogiri Ruby package, which is used for those
+  # commands.
+  # See https://nokogiri.org/tutorials/installing_nokogiri.html#ubuntu-debian
+  # and https://discourse.brew.sh/t/brew-tests-fails-on-ubuntu-docker/4770.
+  apt-get install -y \
+    patch \
+    zlib1g-dev \
+    liblzma-dev
 }
 
 ########################################
@@ -63,7 +78,9 @@ homebrew::install() {
 }
 
 ########################################
-# Test Homebrew.
+# Test the Homebrew installation.
+# This test will try to install the hello formula and execute it after a
+# successful install.
 #
 # Globals:
 #   None
@@ -73,9 +90,41 @@ homebrew::install() {
 #   None
 ########################################
 homebrew::test() {
-  brew --version
   brew install hello
   hello
+}
+
+########################################
+# Show Homebrew’s configuration.
+# 
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+########################################
+homebrew::show_config() {
+  brew --env
+  brew config
+}
+
+########################################
+# Run Homebrew’s unit and integration tests.
+# 
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+########################################
+homebrew::run_tests() {
+  # Verify the system is ready to brew.
+  brew doctor
+
+  # Run the tests.
+  brew tests
 }
 
 
@@ -85,7 +134,9 @@ homebrew::test() {
 main() {
   homebrew::install_requirements
   homebrew::install
+  homebrew::show_config
   homebrew::test
+  homebrew::run_tests
 }
 
 main "${@}"

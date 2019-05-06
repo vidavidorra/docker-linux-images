@@ -27,8 +27,6 @@ ENV LANG en_US.utf8
 
 # Additional packages from sources.
 #
-RUN apt-get update \
-      && apt-get install -y build-essential curl file git
 ADD ./src /usr/docker-linux/src
 ENV PATH /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:${PATH}
 RUN /usr/docker-linux/src/install_homebrew
