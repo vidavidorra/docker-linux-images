@@ -22,6 +22,15 @@ This repository is automatically build on CI platform(s). After a successful bui
   </tr>
 </table>
 
+## Installed software
+
+These images have [Homebrew](https://brew.sh/) installed. Some 'standard' packages, as listed below, are already installed via Homebrew.
+
+- `gcc`
+- `node`
+- `git`
+- `wget`
+
 ## License
 
 This project is licensed under the [GPLv3 license](https://www.gnu.org/licenses/gpl.html).

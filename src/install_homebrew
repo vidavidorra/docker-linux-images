@@ -127,6 +127,23 @@ homebrew::run_tests() {
   brew tests
 }
 
+########################################
+# Install some generic and usefull packages.
+#
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+########################################
+homebrew::install_packages() {
+  brew install \
+    gcc \
+    git \
+    node \
+    wget
+}
 
 ################################################################################
 # Main
@@ -137,6 +154,7 @@ main() {
   homebrew::show_config
   homebrew::test
   homebrew::run_tests
+  homebrew::install_packages
 }
 
 main "${@}"
