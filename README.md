@@ -24,7 +24,7 @@ This repository is automatically build on CI platform(s). After a successful bui
 
 ## Installed software
 
-These images have [Homebrew](https://brew.sh/) installed. Some 'standard' packages, as listed below, are already installed via Homebrew.
+These images have [Homebrew](https://brew.sh/) installed. The packages listed below are already installed via Homebrew.
 
 - `gcc`
 - `node`
