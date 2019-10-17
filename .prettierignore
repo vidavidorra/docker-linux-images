@@ -1,2 +1,12 @@
-./lib/**
+# Git
+.git/*
+
+# Node
+node_modules/*
+coverage/*
+
+# TypeScript outDir
+dist/*
+
+# Licensing
 LICENSE.md
