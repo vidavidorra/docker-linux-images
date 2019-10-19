@@ -12,7 +12,8 @@
     "lint-shell": "global-linters --range '>=0.7.0' shellcheck '**/*.sh'",
     "lint-shell:file": "global-linters --range '>=0.7.0' shellcheck",
     "lint-docker": "global-linters --range '>=1.17.0' hadolint '**/*.DockerFile'",
-    "lint-docker:file": "global-linters --range '>=1.17.0' hadolint"
+    "lint-docker:file": "global-linters --range '>=1.17.0' hadolint",
+    "ci:files-changed": "exit-if-diff --file '(docker|src)/*' --since"
   },
   "repository": {
     "type": "git",
@@ -52,6 +53,7 @@
     "lint-staged": "^9.4.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
+    "run-if-diff": "^2.0.0",
     "standard-version": "^7.0.0"
   }
 }

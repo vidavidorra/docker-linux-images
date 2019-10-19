@@ -7,18 +7,26 @@ env:
 build:
   ci:
     - >
-      docker build
-      --file "./docker/${LINUX_VERSION}.DockerFile"
-      --tag "docker-linux:${LINUX_VERSION}"
-      .;
+      if [[ "$(.ci/files-have-changed.sh $SHIPPABLE_COMMIT_RANGE)" == "false" ]]; then
+        echo "Skipping build"
+      else
+        docker build
+        --file "./docker/${LINUX_VERSION}.DockerFile"
+        --tag "docker-linux:${LINUX_VERSION}"
+        .;
+      fi
   on_success:
     - >
-      ./docker/tag_and_push
-      "docker-linux:${LINUX_VERSION}"
-      "vidavidorra"
-      "${BRANCH}"
-      "${GIT_TAG_NAME}"
-      "${PULL_REQUEST}";
+      if [[ "$(.ci/files-have-changed.sh $SHIPPABLE_COMMIT_RANGE)" == "false" ]]; then
+        echo "Skipping push"
+      else
+        ./docker/tag_and_push
+        "docker-linux:${LINUX_VERSION}"
+        "vidavidorra"
+        "${BRANCH}"
+        "${GIT_TAG_NAME}"
+        "${PULL_REQUEST}";
+      fi
 integrations:
   notifications:
     - integrationName: email
