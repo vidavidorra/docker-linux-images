@@ -1,6 +1,18 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.1.0](https://github.com/vidavidorra/docker-linux/compare/v1.0.1...v1.1.0) (2019-10-20)
+
+### Features
+
+- install some standard homebrew packages ([7c7616d](https://github.com/vidavidorra/docker-linux/commit/7c7616d5e8fa555c09bd05e21212a066b2cd65a0))
+
+### Bug Fixes
+
+- implement fixes from linting Docker files ([0ce23b9](https://github.com/vidavidorra/docker-linux/commit/0ce23b930ce35237c97051bfe929de86b9d2850a))
+- implement fixes from linting shell files ([db98ce0](https://github.com/vidavidorra/docker-linux/commit/db98ce013f4743ef5bcdd17802bc510bafbba031))
+- install zlib requirements for brew tests ([d75eb0f](https://github.com/vidavidorra/docker-linux/commit/d75eb0fee58c9ad91c9ed53f1764d2f99d2fe769))
 
 <a name="1.0.1"></a>
 
