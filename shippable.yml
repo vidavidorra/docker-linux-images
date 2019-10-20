@@ -39,7 +39,7 @@ integrations:
         - --last_author
       sendConsoleLogs: false
       on_success: change
-      on_failure: change
+      on_failure: always
       on_cancel: never
       on_start: never
       on_pull_request: never
