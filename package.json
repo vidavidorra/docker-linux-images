@@ -6,6 +6,7 @@
   "scripts": {
     "release": "standard-version --sign",
     "release:publish": "git push --follow-tags",
+    "format:file": "prettier --write",
     "prettier": "prettier \"**/*.{js,ts,json,md,yml,yaml}\"",
     "prettier:fix": "prettier \"**/*.{js,ts,json,md,yml,yaml}\" --write",
     "lint": "run-s -c -s lint-shell lint-docker",
