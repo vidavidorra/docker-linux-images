@@ -23,7 +23,7 @@ build:
       if [[ -z ${GIT_TAG_NAME} && "$(./.ci/files-have-changed.sh $SHIPPABLE_COMMIT_RANGE)" == "false" ]]; then
         echo "Skipping Docker push"
       else
-        ./docker/tag_and_push \
+        ./docker/tag_and_push.sh \
         "docker-linux:${LINUX_VERSION}" \
         "vidavidorra" \
         "${BRANCH}" \
