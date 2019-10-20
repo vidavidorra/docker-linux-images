@@ -33,7 +33,7 @@ ENV LANG en_US.utf8
 #
 COPY ./src /usr/docker-linux/src
 ENV PATH /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:${PATH}
-RUN /usr/docker-linux/src/install_homebrew
+RUN /usr/docker-linux/src/install_homebrew.sh
 
 
 # Cleanup.

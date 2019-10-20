@@ -74,7 +74,7 @@ homebrew::install() {
   echo "${homebrew_user} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
   su - "${homebrew_user}" -c \
-    'sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"'
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 }
 
 ########################################
@@ -96,7 +96,7 @@ homebrew::test() {
 
 ########################################
 # Show Homebrew’s configuration.
-# 
+#
 # Globals:
 #   None
 # Arguments:
@@ -111,7 +111,7 @@ homebrew::show_config() {
 
 ########################################
 # Run Homebrew’s unit and integration tests.
-# 
+#
 # Globals:
 #   None
 # Arguments:

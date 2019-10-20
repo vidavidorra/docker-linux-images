@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 #
 # Tag a Docker image and push the Docker image to Docker Hub.
 
@@ -42,7 +42,7 @@ docker::tag_and_push() {
   local git_pull_request_name="${5}"
 
   readonly PUSH_BRANCHES=( 'master' )
-  if [[ ! ${PUSH_BRANCHES[*]} =~ "${git_branch_name}" ]] && \
+  if [[ ! ${PUSH_BRANCHES[*]} =~ ${git_branch_name} ]] && \
      [[ -z "${git_tag_name}" ]]; then
     echo "Skipping tagging and pushing of Docker image(s) for branch" \
          "'${git_branch_name}'..."
