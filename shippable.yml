@@ -10,7 +10,7 @@ build:
   ci:
     - npm ci
     - >
-      if [[ "$(./.ci/files-have-changed.sh $SHIPPABLE_COMMIT_RANGE)" == "false" ]]; then
+      if [[ -z ${GIT_TAG_NAME} && "$(./.ci/files-have-changed.sh $SHIPPABLE_COMMIT_RANGE)" == "false" ]]; then
         echo "Skipping Docker build"
       else
         docker build \
@@ -20,7 +20,7 @@ build:
       fi
   on_success:
     - >
-      if [[ "$(./.ci/files-have-changed.sh $SHIPPABLE_COMMIT_RANGE)" == "false" ]]; then
+      if [[ -z ${GIT_TAG_NAME} && "$(./.ci/files-have-changed.sh $SHIPPABLE_COMMIT_RANGE)" == "false" ]]; then
         echo "Skipping Docker push"
       else
         ./docker/tag_and_push \
