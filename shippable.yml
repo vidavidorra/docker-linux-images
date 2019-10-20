@@ -13,22 +13,22 @@ build:
       if [[ "$(./.ci/files-have-changed.sh $SHIPPABLE_COMMIT_RANGE)" == "false" ]]; then
         echo "Skipping Docker build"
       else
-        docker build
-        --file "./docker/${LINUX_VERSION}.DockerFile"
-        --tag "docker-linux:${LINUX_VERSION}"
-        .;
+        docker build \
+        --file "./docker/${LINUX_VERSION}.DockerFile" \
+        --tag "docker-linux:${LINUX_VERSION}" \
+        .
       fi
   on_success:
     - >
       if [[ "$(./.ci/files-have-changed.sh $SHIPPABLE_COMMIT_RANGE)" == "false" ]]; then
         echo "Skipping Docker push"
       else
-        ./docker/tag_and_push
-        "docker-linux:${LINUX_VERSION}"
-        "vidavidorra"
-        "${BRANCH}"
-        "${GIT_TAG_NAME}"
-        "${PULL_REQUEST}";
+        ./docker/tag_and_push \
+        "docker-linux:${LINUX_VERSION}" \
+        "vidavidorra" \
+        "${BRANCH}" \
+        "${GIT_TAG_NAME}" \
+        "${PULL_REQUEST}"
       fi
 integrations:
   notifications:
