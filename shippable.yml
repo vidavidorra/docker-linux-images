@@ -1,4 +1,6 @@
-language: none
+language: node_js
+node_js:
+  - '12.8.0'
 env:
   matrix:
     - LINUX_VERSION: ubuntu1404
@@ -6,9 +8,10 @@ env:
     - LINUX_VERSION: ubuntu1804
 build:
   ci:
+    - npm ci
     - >
-      if [[ "$(.ci/files-have-changed.sh $SHIPPABLE_COMMIT_RANGE)" == "false" ]]; then
-        echo "Skipping build"
+      if [[ "$(./.ci/files-have-changed.sh $SHIPPABLE_COMMIT_RANGE)" == "false" ]]; then
+        echo "Skipping Docker build"
       else
         docker build
         --file "./docker/${LINUX_VERSION}.DockerFile"
@@ -17,8 +20,8 @@ build:
       fi
   on_success:
     - >
-      if [[ "$(.ci/files-have-changed.sh $SHIPPABLE_COMMIT_RANGE)" == "false" ]]; then
-        echo "Skipping push"
+      if [[ "$(./.ci/files-have-changed.sh $SHIPPABLE_COMMIT_RANGE)" == "false" ]]; then
+        echo "Skipping Docker push"
       else
         ./docker/tag_and_push
         "docker-linux:${LINUX_VERSION}"

@@ -13,7 +13,8 @@
     "lint-shell:file": "global-linters --range '>=0.7.0' shellcheck",
     "lint-docker": "global-linters --range '>=1.17.0' hadolint '**/*.DockerFile'",
     "lint-docker:file": "global-linters --range '>=1.17.0' hadolint",
-    "ci:files-changed": "exit-if-diff --file '(docker|src)/*' --since"
+    "ci:exit-if-diff": "exit-if-diff --file '(docker|src)/*' --file '.dockerignore' --file 'shippable.yml' --since",
+    "ci:files-have-changed": "./.ci/files-have-changed.sh"
   },
   "repository": {
     "type": "git",

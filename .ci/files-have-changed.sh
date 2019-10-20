@@ -23,7 +23,7 @@
 # Globals:
 #   None
 # Arguments:
-#   commit_sha_or_range SHA to check for changes or SHA range.
+#   commit_sha_or_range SHA or SHA range to check for changes.
 # Returns:
 #   True if files have been changed, false else.
 ########################################
@@ -37,7 +37,7 @@ files_have_changed() {
   local sha
   sha=$(echo "${commit_sha_or_range}" | cut -c 1-7)
 
-  npm run --silent ci:files-changed -- "${sha}"
+  npm run --silent ci:exit-if-diff -- "${sha}"
   local exit_code="$?"
 
   if [[ $exit_code -eq 128 ]]; then
