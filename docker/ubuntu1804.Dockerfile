@@ -36,7 +36,7 @@ ENV PATH /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:${PATH}
 RUN /usr/docker-linux/src/install_homebrew.sh
 
 
-# Cleanup.
+# Clean up.
 #
 # Delete all the apt list files since they're big and get stale quickly. This
 # forces "apt-get update" in dependent images, which is also good. See also
