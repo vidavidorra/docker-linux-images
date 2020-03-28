@@ -95,7 +95,7 @@ homebrew::test() {
 }
 
 ########################################
-# Show Homebrew’s configuration.
+# Show Homebrew configuration.
 #
 # Globals:
 #   None
@@ -110,7 +110,7 @@ homebrew::show_config() {
 }
 
 ########################################
-# Run Homebrew’s unit and integration tests.
+# Run Homebrew unit and integration tests.
 #
 # Globals:
 #   None
@@ -128,7 +128,7 @@ homebrew::run_tests() {
 }
 
 ########################################
-# Install some generic and usefull packages.
+# Install some generic and useful packages.
 #
 # Globals:
 #   None

@@ -2,20 +2,25 @@
   "name": "docker-linux",
   "version": "1.1.0",
   "description": "Docker Linux base image(s)",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "release": "standard-version --sign",
-    "release:publish": "git push --follow-tags",
-    "format:file": "prettier --write",
-    "prettier": "prettier \"**/*.{js,ts,json,md,yml,yaml}\"",
-    "prettier:fix": "prettier \"**/*.{js,ts,json,md,yml,yaml}\" --write",
-    "lint": "run-s -c -s lint-shell lint-docker",
+    "lint": "concurrently npm:lint-es npm:lint-shell npm:lint-docker",
+    "lint:fix": "concurrently npm:lint-es:fix",
+    "lint-es": "eslint --ext .ts,.tsx,.js,.jsx,.json .",
+    "lint-es:file": "eslint --ext .ts,.tsx,.js,.jsx,.json",
+    "lint-es:fix": "eslint --ext .ts,.tsx,.js,.jsx,.json --fix .",
+    "lint-es:file:fix": "eslint --ext .ts,.tsx,.js,.jsx,.json --fix",
     "lint-shell": "global-linters --range '>=0.7.0' shellcheck '**/*.sh'",
     "lint-shell:file": "global-linters --range '>=0.7.0' shellcheck",
     "lint-docker": "global-linters --range '>=1.17.0' hadolint '**/*.DockerFile'",
     "lint-docker:file": "global-linters --range '>=1.17.0' hadolint",
-    "ci:exit-if-diff": "exit-if-diff --file '(docker|src)/*' --file '.dockerignore' --file 'shippable.yml' --since",
-    "ci:files-have-changed": "./.ci/files-have-changed.sh"
+    "format": "prettier --write \"**/*.{js,jsx,vue,ts,css,less,scss,html,htm,json,md,markdown,yml,yaml}\"",
+    "format:file": "prettier --write",
+    "release:version": "next-standard-version",
+    "release:changelog": "standard-version --dry-run --skip.commit=true --skip.tag=true",
+    "release:commit": "git commit --allow-empty -m \"chore(release): trigger release process [ci release]\"",
+    "release:message": "chalk -t \"Run {green.bold git push} to publish the release or {red.bold git reset HEAD^} to undo the release.\"",
+    "release": "run-s release:changelog release:commit release:message"
   },
   "repository": {
     "type": "git",
@@ -27,35 +32,25 @@
     "url": "https://github.com/vidavidorra/docker-linux/issues"
   },
   "homepage": "https://github.com/vidavidorra/docker-linux#readme",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "**/*.{js,ts,json,md,yml,yaml}": [
-      "npm run prettier:fix",
-      "git add"
-    ],
-    "**/*.sh": "npm run lint-shell:file",
-    "**/*.DockerFile": "npm run lint-docker:file"
-  },
-  "standard-version": {
-    "scripts": {
-      "prerelease": "if [[ \"$(git rev-parse --abbrev-ref HEAD)\" != \"master\" ]]; then exit -1; fi",
-      "postchangelog": "npm run format:file CHANGELOG.md"
-    }
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
-    "global-linters": "^0.1.5",
-    "husky": "^3.0.9",
-    "lint-staged": "^9.4.2",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^1.18.2",
-    "run-if-diff": "^2.0.0",
-    "standard-version": "^7.0.0"
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "@typescript-eslint/eslint-plugin": "2.25.0",
+    "@typescript-eslint/parser": "2.25.0",
+    "chalk-cli": "4.1.0",
+    "concurrently": "5.1.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.1",
+    "eslint-plugin-json": "2.1.1",
+    "eslint-plugin-prettier": "3.1.2",
+    "global-linters": "0.1.5",
+    "husky": "4.2.3",
+    "lint-staged": "10.0.9",
+    "next-standard-version": "2.1.0",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.0.2",
+    "standard-version": "7.1.0",
+    "typescript": "3.8.3"
   }
 }

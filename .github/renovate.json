@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "config:base",
+    ":pinDependencies",
+    ":timezone(Europe/Amsterdam)",
+    ":assignee(vidavidorra)"
+  ],
+  "schedule": ["before 6am"],
+  "packageRules": [
+    {
+      "languages": ["docker"],
+      "paths": ["src/**/?(*.)Dockerfile"],
+      "semanticCommitType": "fix"
+    }
+  ]
+}
