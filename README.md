@@ -1,4 +1,6 @@
-# Docker Linux base image(s)
+# Docker Linux base images
+
+Docker Linux base images with [Homebrew](https://brew.sh/) and a brief selection Homebrew formulae installed.
 
 <a name="toc"></a>
 
@@ -6,6 +8,7 @@
 
 - [Badges](#badges)
 - [Documentation](#documentation)
+  - [Usage](#usage)
   - [Build](#build)
   - [Installed software](#installed-software)
 - [License](#license)
@@ -25,11 +28,31 @@
 
 <hr>
 
-⚓ [Badges](#badges) • [Documentation](#documentation) • [Build](#build) • [Installed software](#installed-software) • [License](#license)
+⚓ [Badges](#badges) • [Documentation](#documentation) • [License](#license)
 
 <a name="documentation"></a>
 
 ## Documentation
+
+<a name="usage"></a>
+
+## Usage
+
+These images are mainly intended to be used as base image in other Docker images, but can also just be run as a Docker container.
+
+- Use Ubuntu 18.04 base image.
+
+  ```dockerfile
+  FROM vidavidorra/ubuntu-18.04:v2.0.0
+
+  COPY example_file.txt /app
+  RUN cat /app/example_file.txt
+  ```
+
+- Run Ubuntu 18.04 container.
+  ```shell
+  $ docker run --rm -it vidavidorra/ubuntu-18.04:v2.0.0
+  ```
 
 <a name="build"></a>
 
@@ -59,7 +82,7 @@ These images have [Homebrew](https://brew.sh/) installed. The packages listed be
 
 <hr>
 
-⚓ [Badges](#badges) • [Documentation](#documentation) • [Build](#build) • [Installed software](#installed-software) • [License](#license)
+⚓ [Badges](#badges) • [Documentation](#documentation) • [License](#license)
 
 ## License
 
