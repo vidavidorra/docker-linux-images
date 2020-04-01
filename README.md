@@ -43,11 +43,10 @@ This repository is automatically build on GitHub Actions using Docker's official
 
 The builds can result in a series of different tags of the Docker image, only one of wich is really intended for production usage.
 
-| Tag           | Production? | Usage                                                                                                                               |
-| ------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `v1.0.0`      | yes         | Images of a GitHub release.                                                                                                         |
-| `latest`      | no          | Latest build from the `master` branch. Although these are usually stable builds, it is not recommended to use these for production. |
-| `sha-abcd123` | no          | Images build from a specific Git SHA.                                                                                               |
+| Tag           | Production? | Usage                                 |
+| ------------- | ----------- | ------------------------------------- |
+| `v2.0.0`      | yes         | Images of a GitHub release.           |
+| `sha-abcd123` | no          | Images build from a specific Git SHA. |
 
 ## Installed software
 
