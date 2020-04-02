@@ -10,7 +10,7 @@ Docker Linux base images with [Homebrew](https://brew.sh/) and a brief selection
 - [Documentation](#documentation)
   - [Usage](#usage)
   - [Build](#build)
-  - [Installed software](#installed-software)
+  - [Installed formulae](#installed-formulae)
 - [License](#license)
 
 <a name="badges"></a>
@@ -71,9 +71,11 @@ The builds can result in a series of different tags of the Docker image, only on
 | `v2.0.0`      | yes         | Images of a GitHub release.           |
 | `sha-abcd123` | no          | Images build from a specific Git SHA. |
 
-## Installed software
+<a name="installed-formulae"></a>
 
-These images have [Homebrew](https://brew.sh/) installed. The packages listed below are already installed via Homebrew.
+## Installed formulae
+
+These images have [Homebrew](https://brew.sh/) installed. The formulae listed below are already installed via Homebrew.
 
 - `gcc`
 - `node`
