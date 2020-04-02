@@ -58,7 +58,7 @@ These images are mainly intended to be used as base image in other Docker images
 
 ## Build
 
-This repository is automatically build on GitHub Actions using Docker's official [build and push Docker images](https://github.com/marketplace/actions/build-and-push-docker-images) GitHub Action. The Docker images of each build are pushed to a series repositories on Docker Hub. The different images are all uploaded to their own repositories in order to make the versioning of them as straight forward as possible.
+This repository is automatically build on GitHub Actions using Docker's official [build and push Docker images](https://github.com/marketplace/actions/build-and-push-docker-images) GitHub Action. The Docker images of each build are pushed to a series repositories on Docker Hub where each image has its own repository to make their versioning as straight forward as possible.
 
 - [Ubuntu 18.04](https://hub.docker.com/r/vidavidorra/ubuntu-18.04)
 - [Ubuntu 16.04](https://hub.docker.com/r/vidavidorra/ubuntu-16.04)
