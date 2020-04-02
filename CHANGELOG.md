@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/vidavidorra/docker-linux-images/compare/v1.1.0...v2.0.0) (2020-04-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* From this release forward, the built images are distributed over a series of Docker Hub repositories. These images are also tagged differently than before. See the readme's build section for details.
+
+### Features
+
+* separate images over different Docker Hub repositories ([f3a88be](https://github.com/vidavidorra/docker-linux-images/commit/f3a88be6bdad5b91b736e58f3c0a4da74f5176ac))
+
+
+### Bug Fixes
+
+* only set ref tag on PR ([473cc64](https://github.com/vidavidorra/docker-linux-images/commit/473cc643ed8c8240adcc46046be7000d845c5f92))
+* remove ci files not needed when using GitHub Actions ([d31d42e](https://github.com/vidavidorra/docker-linux-images/commit/d31d42e3b9fd9bb4111e2ccd9b96220f9a74cb9a))
+
 ## [1.1.0](https://github.com/vidavidorra/docker-linux/compare/v1.0.1...v1.1.0) (2019-10-20)
 
 ### Features
