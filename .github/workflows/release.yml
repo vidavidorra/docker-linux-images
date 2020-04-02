@@ -76,6 +76,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
       - name: Get VERSION
         uses: actions/download-artifact@v1.0.0
         with:
@@ -83,6 +85,15 @@ jobs:
       - name: Save version for later steps
         id: version
         run: echo "::set-output name=version::$(cat version/VERSION)"
+      - name: Get changelog section
+        id: changelog
+        run: |
+          git pull
+          changelog="$(git show --unified=0 CHANGELOG.md \
+              | tail +12 \
+              | sed -e 's/^\+//' \
+              | sed -z 's/\n/%0A/g;s/\r/%0D/g')"
+          echo "::set-output name=changelog::${changelog}"
       - name: Publish GitHub release
         uses: actions/create-release@v1.0.1
         env:
@@ -91,9 +102,11 @@ jobs:
           tag_name: v${{ steps.version.outputs.version }}
           release_name: v${{ steps.version.outputs.version }}
           body: |
-            See the the [changelog](
+            *See the the [changelog](
               https://github.com/${{ github.repository }}/blob/master/CHANGELOG.md
-            ) for the changes included in this release.
+            ) for the changes in all releases.*
+
+            ${{ steps.changelog.outputs.changelog }}
   prevent_failed_status:
     name: Prevent failed status when skipped
     runs-on: ubuntu-latest
