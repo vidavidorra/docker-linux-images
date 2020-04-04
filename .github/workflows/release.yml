@@ -4,7 +4,7 @@ on:
     branches:
       - master
 jobs:
-  preparation:
+  get-version:
     runs-on: ubuntu-latest
     if: |
       github.event.commits[0].message == 'chore(release): trigger release process [ci release]' ||
@@ -18,10 +18,6 @@ jobs:
           fetch-depth: 0
       - name: Fetch tags
         run: git fetch --tags
-      - name: Setup Git user
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Setup node
         uses: actions/setup-node@v1.4.1
         with:
@@ -33,23 +29,18 @@ jobs:
           readonly COMMIT_MESSAGE="${{ github.event.commits[0].message }}"
           if [[ "${COMMIT_MESSAGE: -11: -1}" == 'ci release' ]]; then
             npm run release:version --silent > VERSION
-            echo "::set-env name=NEXT_VERSION::$(npm run release:version --silent)"
-            npx --no-install standard-version
           else
             readonly RELEASE_TYPE="${COMMIT_MESSAGE: -6: -1}"
             npm run release:version --silent -- --releaseAs "${RELEASE_TYPE}" \
                 > VERSION
-            npx --no-install standard-version --release-as "${RELEASE_TYPE}"
           fi
-      - name: Publish release
-        run: git push --follow-tags
       - name: Save VERSION for following jobs
         uses: actions/upload-artifact@v1.0.0
         with:
           name: version
           path: VERSION
   build:
-    needs: preparation
+    needs: get-version
     strategy:
       matrix:
         version: [ubuntu-14.04, ubuntu-16.04, ubuntu-18.04]
@@ -78,6 +69,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.0.0
+        with:
+          fetch-depth: 0
+      - name: Fetch tags
+        run: git fetch --tags
+      - name: Setup Git user
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Get VERSION
         uses: actions/download-artifact@v1.0.0
         with:
@@ -85,15 +84,25 @@ jobs:
       - name: Save version for later steps
         id: version
         run: echo "::set-output name=version::$(cat version/VERSION)"
+      - name: Release
+        run: |
+          readonly COMMIT_MESSAGE="${{ github.event.commits[0].message }}"
+          if [[ "${COMMIT_MESSAGE: -11: -1}" == 'ci release' ]]; then
+            npx --no-install standard-version
+          else
+            readonly RELEASE_TYPE="${COMMIT_MESSAGE: -6: -1}"
+            npx --no-install standard-version --release-as "${RELEASE_TYPE}"
+          fi
       - name: Get changelog section
         id: changelog
         run: |
-          git pull
           changelog="$(git show --unified=0 CHANGELOG.md \
               | tail +12 \
               | sed -e 's/^\+//' \
               | sed -z 's/\n/%0A/g;s/\r/%0D/g')"
           echo "::set-output name=changelog::${changelog}"
+      - name: Publish release
+        run: git push --follow-tags
       - name: Publish GitHub release
         uses: actions/create-release@v1.0.1
         env:
@@ -104,7 +113,7 @@ jobs:
           body: |
             *See the the [changelog](
               https://github.com/${{ github.repository }}/blob/master/CHANGELOG.md
-            ) for the changes in all releases.*
+            ) for changes in all releases.*
 
             ${{ steps.changelog.outputs.changelog }}
   prevent_failed_status:
