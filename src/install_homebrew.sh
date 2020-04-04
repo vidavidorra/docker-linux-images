@@ -56,6 +56,12 @@ homebrew::install_requirements() {
     patch \
     zlib1g-dev \
     liblzma-dev
+
+  # Delete all the apt list files since they're big and get stale quickly. This
+  # forces "apt-get update" in dependent images, which is also good. See also
+  # https://bugs.launchpad.net/cloud-images/+bug/1699913.
+  apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 }
 
 ########################################

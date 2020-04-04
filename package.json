@@ -12,7 +12,7 @@
     "lint-es:file:fix": "eslint --ext .ts,.tsx,.js,.jsx,.json --fix",
     "lint-shell": "global-linters --range '>=0.7.0' shellcheck '**/*.sh'",
     "lint-shell:file": "global-linters --range '>=0.7.0' shellcheck",
-    "lint-docker": "global-linters --range '>=1.17.0' hadolint '**/*.DockerFile'",
+    "lint-docker": "global-linters --range '>=1.17.0' hadolint '**/*.Dockerfile'",
     "lint-docker:file": "global-linters --range '>=1.17.0' hadolint",
     "format": "prettier --write \"**/*.{js,jsx,vue,ts,css,less,scss,html,htm,json,md,markdown,yml,yaml}\"",
     "format:file": "prettier --write",
