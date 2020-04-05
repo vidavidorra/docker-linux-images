@@ -1,6 +1,6 @@
 {
   "name": "docker-linux-images",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Docker Linux base image(s)",
   "private": true,
   "scripts": {

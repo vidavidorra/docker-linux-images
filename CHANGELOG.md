@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/vidavidorra/docker-linux-images/compare/v2.0.0...v2.0.1) (2020-04-05)
+
+
+### Bug Fixes
+
+* pin Docker digest ([511d8e3](https://github.com/vidavidorra/docker-linux-images/commit/511d8e3d6c196ab21cfec9a47e6d9201a6576d17))
+
 ## [2.0.0](https://github.com/vidavidorra/docker-linux-images/compare/v1.1.0...v2.0.0) (2020-04-02)
 
 
