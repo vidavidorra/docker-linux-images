@@ -1,4 +1,5 @@
 {
+  "enabledManagers": ["dockerfile", "homebrew", "npm", "regex"],
   "extends": [
     "config:base",
     ":pinDependencies",
@@ -7,11 +8,23 @@
   ],
   "packageRules": [
     {
+      "depTypeList": ["devDependencies"],
+      "extends": ["schedule:monthly"]
+    },
+    {
       "languages": ["docker"],
       "paths": ["src/**/?(*.)Dockerfile"],
       "semanticCommitType": "fix"
     }
   ],
   "pinDigests": true,
-  "schedule": ["before 6am"]
+  "regexManagers": [
+    {
+      "fileMatch": ["^src/install_homebrew\\.sh$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>.+?)(?: versioning=(?<versioning>[a-z-]+?))?\\s[A-Z_]+?_VERSION=(?<currentValue>.+?)\\s"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
+    }
+  ]
 }

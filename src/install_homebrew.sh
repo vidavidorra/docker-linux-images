@@ -21,7 +21,8 @@ set -x
 ################################################################################
 # Global variables
 ################################################################################
-
+# renovate: datasource=git-tags depName=https://github.com/Homebrew/brew versioning=semver
+HOMEBREW_VERSION=2.2.14
 
 ################################################################################
 # Functions
@@ -75,6 +76,8 @@ homebrew::install_requirements() {
 #   None
 ########################################
 homebrew::install() {
+  echo "Installing Homebrew ${HOMEBREW_VERSION}"
+
   local homebrew_user='linuxbrew'
   useradd -m -s /bin/bash "${homebrew_user}"
   echo "${homebrew_user} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
