@@ -18,7 +18,7 @@ jobs:
   build:
     strategy:
       matrix:
-        version: [ubuntu-14.04, ubuntu-16.04, ubuntu-18.04]
+        version: [ubuntu-14.04, ubuntu-16.04, ubuntu-18.04, ubuntu-20.04]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
