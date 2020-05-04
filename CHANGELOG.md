@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/vidavidorra/docker-linux-images/compare/v2.0.1...v2.1.0) (2020-05-04)
+
+
+### Features
+
+* add Ubuntu 20.04 image ([eb26018](https://github.com/vidavidorra/docker-linux-images/commit/eb260183f7998dce85073b6c8663b07c47506b62))
+
+
+### Bug Fixes
+
+* add Homebrew version to script and update using Renovate ([e7eac78](https://github.com/vidavidorra/docker-linux-images/commit/e7eac782045fa61ca627943263ed21e13db3247d))
+
 ### [2.0.1](https://github.com/vidavidorra/docker-linux-images/compare/v2.0.0...v2.0.1) (2020-04-05)
 
 
