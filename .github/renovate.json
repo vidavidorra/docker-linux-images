@@ -1,11 +1,18 @@
 {
-  "enabledManagers": ["dockerfile", "homebrew", "npm", "regex"],
   "extends": [
     "config:base",
+    ":masterIssue",
     ":pinDependencies",
-    ":timezone(Europe/Amsterdam)",
-    ":assignee(vidavidorra)"
+    ":timezone(Europe/Amsterdam)"
   ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "masterIssueApproval": true
+  },
+  "major": {
+    "stabilityDays": 3,
+    "masterIssueApproval": true
+  },
   "packageRules": [
     {
       "depTypeList": ["devDependencies"],
@@ -19,6 +26,7 @@
     }
   ],
   "pinDigests": true,
+  "prCreation": "not-pending",
   "regexManagers": [
     {
       "fileMatch": ["^src/install_homebrew\\.sh$"],
