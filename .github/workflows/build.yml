@@ -3,12 +3,17 @@ on:
   push:
     branches:
       - master
+      - 'renovate/**'
+      - 'github-renovate/**'
     paths:
       - '.github/workflows/build.yml'
       - '.dockerignore'
       - 'docker/*.Dockerfile'
       - 'src/**'
   pull_request:
+    branches-ignore:
+      - 'renovate/**'
+      - 'github-renovate/**'
     paths:
       - '.github/workflows/build.yml'
       - '.dockerignore'

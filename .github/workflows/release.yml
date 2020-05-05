@@ -45,7 +45,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [ubuntu-14.04, ubuntu-16.04, ubuntu-18.04]
+        version: [ubuntu-14.04, ubuntu-16.04, ubuntu-18.04, ubuntu-20.04]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
