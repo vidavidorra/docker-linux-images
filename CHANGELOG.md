@@ -4,39 +4,34 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [2.1.0](https://github.com/vidavidorra/docker-linux-images/compare/v2.0.1...v2.1.0) (2020-05-04)
 
-
 ### Features
 
-* add Ubuntu 20.04 image ([eb26018](https://github.com/vidavidorra/docker-linux-images/commit/eb260183f7998dce85073b6c8663b07c47506b62))
-
+- add Ubuntu 20.04 image ([eb26018](https://github.com/vidavidorra/docker-linux-images/commit/eb260183f7998dce85073b6c8663b07c47506b62))
 
 ### Bug Fixes
 
-* add Homebrew version to script and update using Renovate ([e7eac78](https://github.com/vidavidorra/docker-linux-images/commit/e7eac782045fa61ca627943263ed21e13db3247d))
+- add Homebrew version to script and update using Renovate ([e7eac78](https://github.com/vidavidorra/docker-linux-images/commit/e7eac782045fa61ca627943263ed21e13db3247d))
 
 ### [2.0.1](https://github.com/vidavidorra/docker-linux-images/compare/v2.0.0...v2.0.1) (2020-04-05)
 
-
 ### Bug Fixes
 
-* pin Docker digest ([511d8e3](https://github.com/vidavidorra/docker-linux-images/commit/511d8e3d6c196ab21cfec9a47e6d9201a6576d17))
+- pin Docker digest ([511d8e3](https://github.com/vidavidorra/docker-linux-images/commit/511d8e3d6c196ab21cfec9a47e6d9201a6576d17))
 
 ## [2.0.0](https://github.com/vidavidorra/docker-linux-images/compare/v1.1.0...v2.0.0) (2020-04-02)
 
-
 ### ⚠ BREAKING CHANGES
 
-* From this release forward, the built images are distributed over a series of Docker Hub repositories. These images are also tagged differently than before. See the readme's build section for details.
+- From this release forward, the built images are distributed over a series of Docker Hub repositories. These images are also tagged differently than before. See the readme's build section for details.
 
 ### Features
 
-* separate images over different Docker Hub repositories ([f3a88be](https://github.com/vidavidorra/docker-linux-images/commit/f3a88be6bdad5b91b736e58f3c0a4da74f5176ac))
-
+- separate images over different Docker Hub repositories ([f3a88be](https://github.com/vidavidorra/docker-linux-images/commit/f3a88be6bdad5b91b736e58f3c0a4da74f5176ac))
 
 ### Bug Fixes
 
-* only set ref tag on PR ([473cc64](https://github.com/vidavidorra/docker-linux-images/commit/473cc643ed8c8240adcc46046be7000d845c5f92))
-* remove ci files not needed when using GitHub Actions ([d31d42e](https://github.com/vidavidorra/docker-linux-images/commit/d31d42e3b9fd9bb4111e2ccd9b96220f9a74cb9a))
+- only set ref tag on PR ([473cc64](https://github.com/vidavidorra/docker-linux-images/commit/473cc643ed8c8240adcc46046be7000d845c5f92))
+- remove ci files not needed when using GitHub Actions ([d31d42e](https://github.com/vidavidorra/docker-linux-images/commit/d31d42e3b9fd9bb4111e2ccd9b96220f9a74cb9a))
 
 ## [1.1.0](https://github.com/vidavidorra/docker-linux/compare/v1.0.1...v1.1.0) (2019-10-20)
 
