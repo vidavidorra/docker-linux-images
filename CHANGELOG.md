@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/vidavidorra/docker-linux-images/compare/v2.1.0...v2.1.1) (2020-05-05)
+
+### Bug Fixes
+
+- **deps:** update ubuntu docker tag ([#32](https://github.com/vidavidorra/docker-linux-images/issues/32)) ([314e138](https://github.com/vidavidorra/docker-linux-images/commit/314e1388a39875f123c03c4e0078403693fa2925))
+
 ## [2.1.0](https://github.com/vidavidorra/docker-linux-images/compare/v2.0.1...v2.1.0) (2020-05-04)
 
 ### Features
