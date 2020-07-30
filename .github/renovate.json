@@ -10,19 +10,22 @@
     "masterIssueApproval": true
   },
   "major": {
-    "stabilityDays": 3,
-    "masterIssueApproval": true
+    "stabilityDays": 3
   },
   "packageRules": [
     {
-      "depTypeList": ["devDependencies"],
-      "extends": ["schedule:monthly"]
+      "depTypeList": ["dependencies"],
+      "schedule": ["at any time"]
     },
     {
       "packageNames": ["ubuntu"],
       "paths": ["docker/**/?(*.)Dockerfile"],
-      "semanticCommitType": "fix",
       "versioning": "regex:^(?<compatibility>[a-z]+?)-(?<minor>\\d+)?$"
+    },
+    {
+      "packageNames": ["ubuntu", "https://github.com/Homebrew/brew"],
+      "semanticCommitType": "fix",
+      "schedule": ["at any time"]
     }
   ],
   "pinDigests": true,
@@ -35,5 +38,6 @@
       ],
       "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
     }
-  ]
+  ],
+  "schedule": ["on the first day of the month"]
 }
